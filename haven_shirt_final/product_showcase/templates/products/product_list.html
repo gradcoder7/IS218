@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Our Shirts</h1>
+<ul>
+  {% for product in products %}
+  <li style="margin-bottom: 30px;">
+    <img src="{{ product.image.url }}" width="150" height="150" alt="{{ product.name }}">
+    <h2><a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a></h2>
+    <p>{{ product.description|truncatechars:80 }}</p>
+    <p><strong>Price:</strong> ${{ product.price }}</p>
+    <p><strong>Size:</strong> {{ product.get_size_display }}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
