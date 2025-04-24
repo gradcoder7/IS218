@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Feedback Report</h1>
+<ul>
+{% for f in feedbacks %}
+<li>{{ f.product.name }}: {{ f.rating }} - {{ f.comment }}</li>
+{% endfor %}
+</ul>
+{% endblock %}
